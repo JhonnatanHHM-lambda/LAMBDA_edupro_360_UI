@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/NOMBRE_DEL_REPOSITORIO/',
+  base: '/LAMBDA_edupro_360_UI/',
 })
