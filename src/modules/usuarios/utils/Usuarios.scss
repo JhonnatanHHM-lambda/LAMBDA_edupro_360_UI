@@ -1,0 +1,142 @@
+.usuarios-container {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    .header {
+
+        h1 {
+            justify-content: center;
+            width: 100%;
+            display: flex;
+            font-size: 2rem;
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 4px;
+                background: #fbbf24;
+                border-radius: 2px;
+            }
+        }
+
+        .btn-crear-usuario {
+            position: absolute;
+            right: 0;
+            background: #1e293b;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+            &:hover {
+                background: #334155;
+                transform: translateY(-1px);
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+        }
+    }
+}
+
+
+
+.tag {
+    padding: 0.35rem 0.9rem;
+    border-radius: 0.2rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tag.rol {
+    font-size: 0.6rem;
+    background: #fbbe24bb;
+    color: #1e293b;
+
+    &.sin {
+        background: #fa9a9a;
+        color: #991b1b;
+    }
+}
+
+.tag.estado {
+    font-size: 0.7rem;
+
+    &.active {
+        background: #ecfdf5;
+        color: #059669;
+        border: 1px solid #86efac;
+    }
+
+    &.inactive {
+        background: #fef2f2;
+        color: #dc2626;
+        border: 1px solid #fca5a5;
+    }
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    input {
+        width: 100%;
+        padding-right: 40px;
+    }
+
+    .toggle-password-btn {
+        position: absolute;
+        right: 10px;
+        background: none;
+        border: none;
+        color: #64748b;
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 4px;
+        transition: color 0.2s;
+
+        &:hover {
+            color: #1e293b;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .usuarios-container {
+        margin: 0 auto;
+
+        .header {
+
+            h1 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                padding-bottom: 0.75rem;
+            }
+
+            .btn-crear-usuario {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.8rem;
+                font-weight: 600;
+            }
+        }
+
+    }
+}

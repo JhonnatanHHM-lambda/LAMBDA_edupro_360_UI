@@ -1,0 +1,168 @@
+.entregas-docente {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    .header {
+        width: 100%;
+
+        h1 {
+            justify-content: center;
+            width: 100%;
+            display: flex;
+            font-size: 2rem;
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 4px;
+                background: #fbbf24;
+                border-radius: 2px;
+            }
+        }
+    }
+
+    .filtros {
+        display: flex;
+        gap: 2rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+
+        .filtro-group {
+            label {
+                display: block;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+                color: #1e293b;
+            }
+
+            select {
+                padding: 0.8rem 1.2rem;
+                border: 2px solid #e2e8f0;
+                border-radius: 12px;
+                background: white;
+                min-width: 300px;
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .action-btn.grade {
+        background: #fbbf24;
+        color: white;
+        border: none;
+        padding: 0.7rem;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+            background: #f59e0b;
+            transform: scale(1.15);
+        }
+    }
+
+    .link-download {
+        padding: 0.35rem 0.75rem;
+        border-radius: 0.3rem;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        background: #ecfdf5;
+        color: #059669;
+        border: 1px solid #86efac;
+        text-decoration: none;
+    }
+
+    .info-entrega {
+        background: #f8fafc;
+        padding: 1rem;
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+        border-left: 4px solid #fbbf24;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+
+            &:focus {
+                outline: none;
+                border-color: #fbbf24;
+            }
+        }
+    }
+
+    .modal-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+    }
+}
+
+.actions-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.action-btn {
+    padding: 0.6rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &.grade {
+        background: #fbbf24;
+        color: white;
+
+        &:hover {
+            background: #f59e0b;
+            transform: scale(1.15);
+        }
+    }
+
+    &.edit {
+        background: #1e40af;
+        color: white;
+
+        &:hover {
+            background: #1e3a8a;
+            transform: scale(1.15);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .entregas-docente {
+        .header {
+            h1 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                padding-bottom: 0.75rem;
+            }
+        }
+    }
+}

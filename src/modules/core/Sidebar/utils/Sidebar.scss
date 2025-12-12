@@ -1,0 +1,330 @@
+$bg-dark: #0f172a; // Azul muy oscuro
+$sidebar-bg: #1e293b; // Gris azulado oscuro
+$gold: #fbbf24; // Dorado suave
+$gold-light: #fde68a;
+$text-light: #e2e8f0;
+$text-muted: #94a3b8;
+$border-gold: #f59e0b;
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 270px;
+    background: linear-gradient(180deg, $bg-dark 0%, $sidebar-bg 100%);
+    color: $text-light;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border-right: 1px solid #334155;
+
+    overflow: hidden; // ⭐ CAMBIO — ya no scrollea todo el sidebar
+
+    // Firefox
+    scrollbar-width: none;
+
+    // IE/Edge antiguo
+    -ms-overflow-style: none;
+
+    // Chrome, Edge, Safari
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+
+    &.collapsed {
+        transition: all 0.3s ease;
+        width: 100px;
+
+        .nav-label,
+        .logout-btn span,
+        .perfil-item .arrow-right {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .perfil-item .nav-label {
+            display: none;
+        }
+
+        .sidebar-header {
+            padding: 1rem 0.75rem;
+        }
+
+        .sidebar-nav .nav-item {
+            justify-content: center;
+        }
+
+        .sidebar-header {
+            .logo {
+                height: 80px;
+                width: 80px;
+            }
+
+            h2 {
+                transition: all 0.5s ease;
+                font-size: 1rem;
+            }
+        }
+
+    }
+
+    .sidebar-header {
+        padding: 2rem 1.5rem;
+        text-align: center;
+        border-bottom: 1px solid #334155;
+        position: relative;
+        padding: 5px 20px;
+        flex-shrink: 0; // ⭐ CAMBIO — evita que se mueva
+
+        .logo {
+            height: 120px;
+            width: auto;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 4px 6px rgba(251, 191, 36, 0.3));
+        }
+
+        h2 {
+            font-size: 2em;
+            margin: 0;
+        }
+    }
+
+    .sidebar-nav {
+        flex: 1;            // ⭐ CAMBIO — ocupa el espacio restante
+        padding: 1.5rem 1rem;
+        overflow-y: auto;   // ⭐ CAMBIO — aquí es donde scrollea
+
+        // Ocultar scrollbar
+        scrollbar-width: none;        // Firefox
+        -ms-overflow-style: none;     // IE/Edge
+        &::-webkit-scrollbar {        // Chrome/Safari/Edge
+            width: 0;
+            height: 0;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 0.9rem 1.2rem;
+            margin: 0.35rem 0.75rem;
+            border-radius: 12px;
+            color: $text-muted;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+
+            .nav-icon {
+                margin-right: 0.3rem;
+                flex-shrink: 0;
+                width: 20px;
+                height: 20px;
+            }
+
+            .nav-label {
+                font-size: 0.95rem;
+                transition: opacity 0.3s;
+            }
+
+            &:hover {
+                background: rgba(251, 191, 36, 0.1);
+                color: $gold-light;
+            }
+
+            &.active {
+                background: rgba(251, 191, 36, 0.18);
+                color: $gold;
+                font-weight: 600;
+                border-left: 4px solid $gold;
+
+                .nav-icon {
+                    color: $gold;
+                }
+            }
+        }
+
+        .perfil-section {
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid #334155;
+
+            .perfil-item {
+                background: rgba(251, 191, 36, 0.15);
+                border: 1px solid rgba(251, 191, 36, 0.3);
+                color: $gold-light;
+
+                &.active {
+                    background: rgba(251, 191, 36, 0.25);
+                    border-left: 4px solid $gold;
+                }
+
+                .arrow-right {
+                    margin-left: auto;
+                    transition: transform 0.3s;
+                }
+
+                &:hover .arrow-right {
+                    transform: translateX(4px);
+                }
+            }
+        }
+    }
+
+    .sidebar-footer {
+        padding: 1.5rem;
+
+        .logout-btn {
+            width: 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.2rem 0.3rem;
+            background: transparent;
+            border: 1.5px solid #ef4444;
+            color: #fca5a5;
+            border-radius: 7px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+
+            &:hover {
+                background: #ef4444;
+                color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+            }
+
+            svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+}
+
+.main-content {
+    margin-left: 280px;
+    transition: margin-left 0.3s ease;
+    min-height: 100vh;
+    background: #f8fafc;
+    padding: 2rem;
+
+    &.expanded {
+        margin-left: 80px;
+    }
+}
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 280px !important;
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: translateX(0);
+
+        &.collapsed {
+            transform: translateX(-100%);
+            width: 280px !important;
+        }
+    }
+
+    .sidebar-header .logo {
+        height: 100px !important;
+        padding: 1rem 0;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        transition: margin-left 0.35s ease;
+
+        &.expanded {
+            margin-left: 0 !important;
+        }
+    }
+
+    .sidebar:not(.collapsed)~.main-content {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 769px) {
+    .sidebar.collapsed {
+        width: 100px !important;
+    }
+
+    .main-content.expanded {
+        margin-left: 100px !important;
+    }
+}
+
+/* ====================== MÓVIL: Logo siempre visible ====================== */
+.mobile-logo-trigger {
+    position: fixed;
+    left: 8%;
+    top: 7px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background: $sidebar-bg;
+    border-radius: 50%;
+    padding: 0px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 4px solid $gold;
+    z-index: 998;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: float 6s ease-in-out infinite;
+
+    &:hover {
+        transform: translateX(-50%) scale(1.1);
+        box-shadow: 0 15px 40px rgba(251, 191, 36, 0.4);
+    }
+
+    .mobile-logo {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-8px);
+    }
+}
+
+/* Ajuste final: cuando el sidebar está cerrado en móvil, el logo del header no se vea doble */
+@media (max-width: 768px) {
+    .sidebar.collapsed .sidebar-header {
+        opacity: 0;
+        pointer-events: none;
+    }
+}

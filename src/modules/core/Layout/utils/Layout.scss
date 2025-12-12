@@ -1,0 +1,43 @@
+.app-content {
+    margin-left: 270px; // ancho del sidebar abierto
+    margin-top: 70px; // alto del navbar
+    min-height: calc(100vh - 70px);
+    background: #f8fafc;
+    padding: 1rem;
+    transition: margin-left 0.3s ease;
+
+    .navbar-container {
+        transition: 0.3s;
+        margin-left: 270px;
+    }
+
+    .navbar-menu {
+        transition: 0.3s;
+        margin-left: 270px;
+    }
+}
+
+/* Cuando el sidebar está colapsado */
+.sidebar.collapsed~.app-content {
+    transition: 0.3s;
+    margin-left: 100px;
+
+
+    .navbar-container {
+        transition: 0.3s;
+        margin-left: 100px;
+    }
+
+    .navbar-menu {
+        transition: 0.3s;
+        margin-left: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .app-content{
+        margin-left: 0px !important;
+        margin-top: 5px;
+    }
+}

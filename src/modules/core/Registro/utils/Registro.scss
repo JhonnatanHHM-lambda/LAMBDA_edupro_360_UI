@@ -1,0 +1,173 @@
+$primary: #fbbf24;
+$text-primary: #1e293b;
+$text-secondary: #64748b;
+$border: #e2e8f0;
+$transition: all 0.25s ease;
+
+.registro-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f4ff 0%, #f8faff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.registro-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.12);
+    width: 100%;
+    max-width: 620px;
+    border: 1px solid $border;
+    padding: 4rem 3.5rem 3.5rem;   /* mucho más aire */
+    position: relative;
+    animation: fadeInUp 0.7s ease-out;
+
+    h1 {
+        font-size: 2rem;
+        color: $text-primary;
+        font-weight: 700;
+        text-align: center;
+        margin: 0 0 2.5rem;
+        position: relative;
+        padding-bottom: 0.75rem;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: $primary;
+            border-radius: 2px;
+        }
+    }
+}
+
+/* GRID PERFECTO */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 2.5rem;           /* más espacio entre campos */
+
+    .full-width {
+        grid-column: 1 / -1;     /* ocupa ambas columnas */
+    }
+
+    @media (max-width: 640px) {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+    }
+}
+
+/* Cada campo completo (label + input + error) */
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    label {
+        font-weight: 600;
+        color: $text-primary;
+        font-size: 0.95rem;
+    }
+
+    input,
+    select {
+        padding: 1rem 1.1rem;
+        border: 2px solid $border;
+        border-radius: 0.75rem;
+        font-size: 1rem;
+        background: #fafbff;
+        transition: $transition;
+
+        &:focus {
+            outline: none;
+            border-color: $primary;
+            background: white;
+            box-shadow: 0 0 0 5px rgba(251, 191, 36, 0.22);
+        }
+
+        &::placeholder {
+            color: #94a3b8;
+        }
+    }
+
+    select {
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10' viewBox='0 0 14 10'%3E%3Cpath fill='%2364748b' d='M1 1l6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 12px;
+    }
+}
+
+.password-wrapper {
+    position: relative;
+
+    .toggle-btn {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: $text-secondary;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        transition: $transition;
+
+        &:hover {
+            color: $primary;
+            background: rgba(251, 191, 36, 0.15);
+        }
+    }
+}
+
+.error-text {
+    color: #ef4444;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1.1rem;
+    background: $primary;
+    color: $text-primary;
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: $transition;
+    box-shadow: 0 6px 20px rgba(251, 191, 36, 0.4);
+
+    &:hover:not(:disabled) {
+        background: #f59e0b;
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px rgba(251, 191, 36, 0.5);
+    }
+
+    &:disabled {
+        background: #cbd5e1;
+        color: #64748b;
+        cursor: not-allowed;
+        transform: none;
+    }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,323 @@
+$bg-dark: #0f172a;
+$sidebar-bg: #1e293b;
+$gold: #fbbf24;
+$gold-light: #fde68a;
+$text-light: #e2e8f0;
+$text-muted: #94a3b8;
+
+.auth-wrapper {
+    display: flex;
+    min-height: 100vh;
+    /* ← Cambiado de height a min-height */
+
+    font-family: 'Segoe UI', sans-serif;
+    background: white;
+}
+
+/* LADO IZQUIERDO - Fondo */
+.auth-left {
+    flex: 1 1 1600px;
+    /* Crece, pero nunca menos de 500px */
+    min-width: 400px;
+    background: url('/fondo.png') center/cover no-repeat fixed;
+    background-color: $bg-dark;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .auth-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.64), rgba(30, 41, 59, 0.82));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .auth-brand {
+        text-align: center;
+        color: white;
+
+        .auth-logo {
+            width: 240px;
+            height: auto;
+            filter: drop-shadow(0 12px 24px rgba(251, 191, 36, 0.5));
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 0 0 1rem;
+            color: $gold-light;
+            text-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: $text-light;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+    }
+}
+
+/* LADO DERECHO - Formulario */
+.auth-right {
+    flex: 1 1 600px;
+    min-width: 350px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-container-cc {
+    width: 80%;
+    max-width: 400px;
+}
+
+/* Estilos comunes del formulario */
+.auth-header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h2 {
+        font-size: 2rem;
+        color: $sidebar-bg;
+        margin: 0 0 0.5rem;
+        font-weight: 700;
+    }
+
+    p {
+        color: $text-muted;
+        font-size: 1.1rem;
+    }
+}
+
+.auth-form {
+    width: 100%;
+}
+
+.auth-group {
+    margin-bottom: 1.8rem;
+
+    label {
+        display: block;
+        margin-bottom: 0.6rem;
+        color: #334155;
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+    input {
+        width: 100% !important;
+        padding: 1rem 1.1rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        font-size: 1.05rem;
+        transition: all 0.25s;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+            border-color: $gold;
+            box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.25);
+        }
+
+    }
+
+    .password-input {
+        position: relative;
+
+        .auth-input {
+            padding-right: 3.5rem;
+            padding-left: 20px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+
+            &:hover {
+                color: $gold;
+            }
+        }
+    }
+
+
+    .auth-password {
+        position: relative;
+
+        input {
+            padding-right: 3.5rem;
+            padding-left: 40px;
+            /* mueve texto + placeholder */
+        }
+
+        .auth-input {
+            padding-right: 3.5rem;
+            padding-left: 20px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+
+            &:hover {
+                color: $gold;
+            }
+        }
+
+        .match-indicator {
+            position: absolute;
+            right: 45px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: white;
+
+            &.ok {
+                background: #10b981;
+            }
+
+            &.bad {
+                background: #ef4444;
+            }
+        }
+    }
+
+    .error-text {
+        color: #ef4444;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        display: block;
+    }
+}
+
+.auth-options {
+    text-align: right;
+    margin-bottom: 2rem;
+
+    .link-btn {
+        background: none;
+        border: none;
+        color: $gold;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 0.95rem;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: $sidebar-bg;
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+        background: #334155;
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px rgba(30, 41, 59, 0.4);
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+    }
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: auto;
+    padding-top: 3rem;
+    color: $text-muted;
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE (igual que tu login) */
+@media (max-width: 1200px) {
+    .auth-left {
+        flex: 1 1 450px;
+    }
+
+    .auth-right {
+        flex: 1 1 380px;
+    }
+}
+
+@media (max-width: 992px) {
+    .auth-wrapper {
+        flex-direction: column;
+    }
+
+    .auth-container {
+        margin-top: 30px;
+    }
+
+    .auth-left {
+        flex: 1 1 40vh;
+        min-height: 40vh;
+        max-height: 50vh;
+
+        .auth-brand {
+            .auth-logo {
+                width: 140px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .auth-left {
+        display: none;
+    }
+
+    .auth-container {
+        max-width: 100%;
+    }
+}

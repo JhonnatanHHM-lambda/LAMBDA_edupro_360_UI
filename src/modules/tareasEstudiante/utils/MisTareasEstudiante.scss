@@ -1,0 +1,476 @@
+.mis-tareas-estudiante {
+    max-width: 1400px;
+    margin: 2rem auto;
+
+}
+
+.card-grid .card {
+    background: white;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.18);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    &:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 24px 48px rgba(251, 191, 36, 0.32);
+        border-color: #fbbf24;
+    }
+
+    // Todo tu contenido interno
+    .tarea-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.2rem;
+
+        .tag {
+            padding: 0.55rem 1.1rem;
+            border-radius: 0.2rem;
+            font-weight: 800;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+
+            &.examen {
+                background: #fef3c7;
+                color: #92400e;
+            }
+
+            &.tarea {
+                background: #dbeafe;
+                color: #1e40af;
+            }
+        }
+
+    }
+
+    .titulo {
+        font-size: 1.38rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin: 0.5rem 0 1rem;
+        line-height: 1.3;
+    }
+
+    .asignatura-info {
+        background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+        padding: 1rem;
+        border-radius: 12px;
+        margin-bottom: 1.2rem;
+        border-left: 5px solid #fbbf24;
+
+        .codigo {
+            font-weight: 900;
+            color: #1e293b;
+            font-size: 1.15rem;
+        }
+
+        .nombre {
+            margin: 0.4rem 0;
+            color: #334155;
+            font-weight: 600;
+        }
+
+        .docente {
+            color: #64748b;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+    }
+
+    .descripcion {
+        margin: 0px 0px 0px;
+        margin-block-end: 0;
+        margin-block-start: 0;
+        color: #475569;
+        line-height: 1.6;
+        flex-grow: 0;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .progress-container {
+        margin: 1.6rem 0;
+
+        .progress-bar {
+            height: 16px;
+            background: #e2e8f0;
+            border-radius: 0.2rem;
+            overflow: hidden;
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            border-radius: 0.2rem;
+            transition: width 0.8s ease;
+            position: relative;
+            overflow: hidden;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.25) 50%, transparent 70%);
+                animation: shimmer 2.5s infinite;
+            }
+        }
+
+        .progress-label {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.92rem;
+            color: #64748b;
+            font-weight: 600;
+        }
+    }
+
+    .tarea-footer {
+        margin-top: auto;
+        padding-top: 1.2rem;
+        border-top: 1px dashed #cbd5e1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .vencimiento {
+            color: #1e293b;
+            font-weight: 600;
+            font-size: 0.98rem;
+            margin-top: auto;
+        }
+    }
+}
+
+// Filtro global siempre visible
+.filtro-global {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    h2 {
+        justify-content: center;
+        width: 100%;
+        display: flex;
+        font-size: 2rem;
+        color: #1e293b;
+        font-weight: 700;
+        position: relative;
+        padding-bottom: 0.75rem;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 4px;
+            background: #fbbf24;
+            border-radius: 2px;
+        }
+    }
+
+    .filtro-select {
+        padding: 0.8rem 1.2rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 0.3rem;
+        background: white;
+        font-size: 1.05rem;
+        min-width: 320px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        margin: 0;
+
+        &:focus {
+            outline: none;
+            border-color: #fbbf24;
+            box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.2);
+        }
+    }
+}
+
+.nota-destacada {
+    background: linear-gradient(135deg, #f59f0bbd, #f97416e9);
+    color: white;
+    padding: 0.4rem 0.9rem;
+    border-radius: 0.2rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+.periodo-destacado {
+    background: #1e293b;
+    color: #fbbf24;
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: center;
+    margin: 0.8rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.retroalimentacion {
+    background: #f8fafc;
+    border-left: 4px solid #fbbf24;
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    color: #334155;
+    line-height: 1.5;
+}
+
+.nota-final {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0.4rem 1rem;
+    border-radius: 0.3rem;
+    background: #fee2e2;
+    color: #991b1b;
+
+    &.aprobada {
+        background: #d1fae5;
+        color: #065f46;
+    }
+}
+
+.resumen-asignatura-card {
+    background: #1e293b;
+    color: white;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 12px 32px rgba(30, 41, 59, 0.4);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        pointer-events: none;
+    }
+
+    .resumen-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0;
+            color: #fbbf24;
+        }
+
+        .codigo {
+            background: rgba(251, 191, 36, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: 1px solid #fbbf24;
+        }
+    }
+
+
+    .resumen-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+
+        .info-item {
+            text-align: center;
+
+            span {
+                display: block;
+                font-size: 0.95rem;
+                opacity: 0.9;
+                margin-bottom: 0.5rem;
+            }
+
+            &.destacado {
+
+                strong {
+                    font-size: 2.7rem;
+                    font-weight: 900;
+                    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+
+                    &.aprobado {
+                        background: linear-gradient(135deg, #10b981, #059669);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+
+                    &.reprobado {
+                        background: linear-gradient(135deg, #ef4444, #dc262673);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.info-item.peso-calificado {
+    .progress-container.small {
+        margin: 1rem 0 0.5rem 0;
+
+        .progress-bar {
+            height: 18px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 0.2rem;
+            overflow: hidden;
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            border-radius: 0.2rem;
+            transition: width 1.2s ease;
+            position: relative;
+            overflow: hidden;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+                animation: shimmer 3s infinite;
+            }
+        }
+
+        strong {
+            display: block;
+            text-align: center;
+            font-size: 1.6rem;
+            margin-top: 0.5rem;
+            color: white;
+            font-weight: 800;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .filtro-global {
+        flex-direction: column;
+        align-items: stretch;
+
+        h2 {
+            text-align: center;
+            font-size: 1.7rem;
+        }
+
+        .filtro-select {
+            min-width: 100%;
+            font-size: 0.85rem ;
+            padding: 0.6rem ;
+
+            
+            option {
+                font-size: 0.8rem;
+                padding: 2px 4px ;
+            }
+        }
+
+    }
+
+
+
+    .card-grid .card {
+
+        margin: 0;
+
+        .tarea-header .tag {
+            padding: 0.3rem 0.8rem;
+            font-size: 0.7rem;
+        }
+
+        .titulo {
+            font-size: 1rem;
+        }
+
+        .asignatura-info .codigo {
+            font-size: 0.9rem;
+        }
+
+        .descripcion {
+            line-height: 1.2;
+        }
+    }
+
+    .resumen-asignatura-card {
+        padding: 1rem;
+
+        .resumen-header {
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            .codigo {
+                font-size: 0.8rem;
+            }
+        }
+
+        .resumen-info .info-item strong {
+            font-size: 1rem;
+        }
+
+        .resumen-info .info-item.destacado strong {
+            font-size: 2.2rem;
+        }
+    }
+
+    .info-item.peso-calificado {
+        .progress-container.small {
+
+            .progress-bar {
+                height: 0.8rem;
+            }
+
+            strong {
+                font-size: 1.2rem;
+                margin-top: 0.5rem;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}

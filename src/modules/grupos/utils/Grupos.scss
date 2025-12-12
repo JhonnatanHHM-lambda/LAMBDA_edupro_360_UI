@@ -1,0 +1,131 @@
+.grupos-container {
+    max-width: 1400px;
+    margin: 0 auto;
+
+    .header {
+        width: 100%;
+
+        h1 {
+            justify-content: center;
+            width: 100%;
+            display: flex;
+            font-size: 2rem;
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 4px;
+                background: #fbbf24;
+                border-radius: 2px;
+            }
+        }
+
+        .btn-crear {
+            position: absolute;
+            right: 0;
+            background: #1e293b;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+            &:hover {
+                background: #334155;
+                transform: translateY(-1px);
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+        }
+    }
+}
+
+// Tags de permisos (estilo limpio y profesional)
+.permisos-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.tag {
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.3rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.tag.permiso {
+    background: #ecfdf5;
+    color: #059669;
+    border: 1px solid #86efac;
+}
+
+.tag.more {
+    background: #1e293b;
+    color: white;
+    font-size: 0.7rem;
+}
+
+// Grid de permisos
+.permisos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.permiso-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    padding: 0.4rem 0;
+
+    input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        accent-color: #1e293b;
+    }
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .grupos-container {
+        .header {
+            h1 {
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                padding-bottom: 0.75rem;
+            }
+
+            .btn-crear {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.8rem;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .permisos-grid {
+        grid-template-columns: 1fr;
+    }
+}
