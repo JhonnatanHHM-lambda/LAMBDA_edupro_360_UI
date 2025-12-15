@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/LAMBDA_edupro_360_UI/',
+  base: '/',  // Cambia esto (o elimínalo, ya que '/' es el default)
   build: {
     outDir: 'dist'
   }
