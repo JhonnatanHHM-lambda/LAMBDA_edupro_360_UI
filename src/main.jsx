@@ -7,7 +7,7 @@ import { UserProvider } from './context/UserContext.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/LAMBDA_edupro_360_UI">
+    <BrowserRouter>
       <UserProvider>
         <App />
       </UserProvider>
